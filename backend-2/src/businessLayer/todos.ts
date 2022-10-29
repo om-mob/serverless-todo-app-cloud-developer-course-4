@@ -14,7 +14,7 @@ const todoAccess = new TodosAccess()
 const attachmentUtils = new AttachmentUtils()
 
 export async function getTodosForUser(userId: string): Promise<TodoItem[]> {
-    return todoAccess.getAllTodoItemsByUser(userId);
+    return await todoAccess.getAllTodoItemsByUser(userId);
   }
   
   export async function createTodo(todoItem: CreateTodoRequest, userId: string): Promise<TodoItem> {
