@@ -82,7 +82,7 @@ functions:
           cors: true
           authorizer: Auth
           request:
-            schemas:
+            schema:
               application/json: ${file(models/create-todo-model.json)}
     iamRoleStatements:
       - Effect: Allow
@@ -102,7 +102,7 @@ functions:
           cors: true # Provide property for setting up CORS
           authorizer: Auth # Provide property for setting up Authorizer
           request: # Provide property for setting up request schemas
-            schemas:
+            schema:
               application/json: ${file(models/update-todo-model.json)}
     iamRoleStatements: # Provide property for setting up iamRoleStatements
       - Effect: Allow
