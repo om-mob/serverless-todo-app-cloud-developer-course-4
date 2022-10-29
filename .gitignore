@@ -13,3 +13,5 @@ jspm_packages
 
 # old, not working backend 
 backend
+# Another try of client that was not needed
+client-2

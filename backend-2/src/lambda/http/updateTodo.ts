@@ -18,7 +18,7 @@ export const handler = middy(
     const updatedTodoItem = await updateTodo(todoId, userId, updatedTodo)
     return {
       statusCode: 200,
-      body: JSON.stringify(updatedTodoItem)
+      body: JSON.stringify({updatedTodoItem})
     }
     // return undefined
   }
