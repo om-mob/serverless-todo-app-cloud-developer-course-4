@@ -58,12 +58,12 @@ export class TodosAccess {
           'userId': userId,
           'todoId': todoId
         },
-        UpdateExpression: 'set name = :name, dueDate = :dueDate, done = :done',
-        // ExpressionAttributeNames: {
-        //   "#n": "name",
-        //   "#dD": "dueDate",
-        //   "#d": "done"
-        // },
+        UpdateExpression: 'set #n = :name, #dD = :dueDate, #d = :done',
+        ExpressionAttributeNames: {
+          "#n": "name",
+          "#dD": "dueDate",
+          "#d": "done"
+        },
         ExpressionAttributeValues: {
           ':name': update.name,
           ':dueDate': update.dueDate,
