@@ -32,7 +32,7 @@ export class TodosAccess {
       return todo
     }
   
-    async getAllTodoItemsByUser(userId: string): Promise<TodoItem[]> {
+    async getAllTodoItems(userId: string): Promise<TodoItem[]> {
       logger.info(`get all todos for user: ${userId}`)
   
       const result = await this.docClient.query({
@@ -58,12 +58,12 @@ export class TodosAccess {
           'userId': userId,
           'todoId': todoId
         },
-        UpdateExpression: 'set #n = :name, #dD = :dueDate, #d = :done',
-        ExpressionAttributeNames: {
-          "#n": "name",
-          "#dD": "dueDate",
-          "#d": "done"
-        },
+        UpdateExpression: 'set name = :name, dueDate = :dueDate, done = :done',
+        // ExpressionAttributeNames: {
+        //   "#n": "name",
+        //   "#dD": "dueDate",
+        //   "#d": "done"
+        // },
         ExpressionAttributeValues: {
           ':name': update.name,
           ':dueDate': update.dueDate,

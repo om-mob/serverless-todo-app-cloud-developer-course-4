@@ -14,7 +14,8 @@ const todoAccess = new TodosAccess()
 const attachmentUtils = new AttachmentUtils()
 
 export async function getTodosForUser(userId: string): Promise<TodoItem[]> {
-    return await todoAccess.getAllTodoItemsByUser(userId);
+    const todos = await todoAccess.getAllTodoItems(userId);
+    return todos;
   }
   
   export async function createTodo(todoItem: CreateTodoRequest, userId: string): Promise<TodoItem> {
@@ -31,7 +32,7 @@ export async function getTodosForUser(userId: string): Promise<TodoItem[]> {
   }
   
   export async function updateTodo(todoId: string, userId: string, update: TodoUpdate): Promise<TodoUpdate> {
-    return todoAccess.updateTodo(todoId, userId, update);
+    return await todoAccess.updateTodo(todoId, userId, update);
   }
   
   export async function deleteTodo(todoId: string, userId: string): Promise<void> {
